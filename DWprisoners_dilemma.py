@@ -54,7 +54,7 @@ def play_round(player1, player2, history1, history2, score1, score2):
         if action1 not in ('c', 'b'):
             new_score1 = score1 - 1000
             # Same goes for player 2
-            if action1 not in ('c', 'b'):
+            if action2 not in ('c', 'b'):
                 new_score2 = score2 - 1000
             else:
                 new_score2 = score2
@@ -587,6 +587,17 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
                 return 'b' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
+            
+    elif player == 20:
+        if getting_team_name:
+            return 'loyal vengeful'
+        else:
+            if len(opponent_history)==0: #It's the first round: collude
+                return 'c'
+            elif history[-1]=='c' and opponent_history[-1]=='b':
+                return 'b' # betray is they were severely punished last time
+            else:
+                return 'c' #otherwise collude            
     
     
 
