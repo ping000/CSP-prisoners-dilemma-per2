@@ -284,7 +284,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 7:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'AhnafC'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
