@@ -579,7 +579,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 19:
         if getting_team_name:
-            return 'JewSorcery'
+            return 'Ben'
         else:
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
@@ -588,7 +588,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             elif history[-1]=='b' and opponent_history[-1]=='b':
                 return 'c' # collude if they were punished last time
             elif history[-1]=='b' and opponent_history[-1]=='c':
-                return 'c' # collude is I was severely punished
+                return 'c' # collude if they were set free
             else:
                 return 'c' #otherwise collude
             
