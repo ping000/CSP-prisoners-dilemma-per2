@@ -468,7 +468,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 14:
         if getting_team_name:
-            return 'loyal vengeful occasionally greedy'
+            return 'DK! Dillon Kong! Hes the leader of the bunch...'
         else:
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
