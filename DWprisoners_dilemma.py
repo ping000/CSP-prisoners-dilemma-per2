@@ -1,4 +1,7 @@
-from __future__ import print_function
+
+    ######
+    #   from __future__ import print_function
+import random
 
 ''' 
 PrisonerDilemma.py allows hard-coding different strategies
@@ -137,7 +140,16 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
         if getting_team_name:
             return 'Max and Marco'
         else:
-            return 'b'
+            if opponent_history[-1] == opponent_history[-2] == opponent_history[-3] == 'c':
+            	return 'c'
+            else:
+            	return 'b'
+            #else:
+            #	max_and_marco_random = randint(1,7)
+            #	if max_and_marco_random % 2 == 0:
+            #		return 'b'
+            #	else:
+            #		return 'b'
 
 
 
@@ -147,8 +159,6 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
     ######
-    ######
-    #   
     #This example player is silent at first and then 
     #only betrays if they were a sucker last round.
     elif player == 2:
@@ -468,7 +478,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 14:
         if getting_team_name:
-            return 'DK! Dillon Kong!
+            return 'DK! Dillon Kong!'
         else:
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
