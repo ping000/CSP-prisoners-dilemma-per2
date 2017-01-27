@@ -183,7 +183,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 3:
         if getting_team_name:
-            return 'backstabber'
+            return 'Ping and Caden'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
