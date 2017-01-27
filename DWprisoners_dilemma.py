@@ -119,9 +119,27 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     # This example player always colludes
     if player == 0:
         if getting_team_name:
-            return 'loyal'
+            return 'KNTH!!'
         else:
-            return 'c'
+            if len(history) == 0: #if it's the first round, collude since I'm hoepful
+                return 'c'
+            elif len(history) % 4 == 0: #if the round is divisible by four, collude, because 4 is a nice number
+                return 'c'
+            elif opponent_history[-2] == 'c' and opponent_history[-1] == 'b':#otherwise if the the opponent seems to be switching to betraying collude
+                return 'c'
+            elif opponent_history[-2] == 'b' and opponent_history[-1] == 'c':#otherwise if the opponent seems to be switching to colluding betray
+                return 'b'
+            elif score > 10: #otherwise if my score is greater than 10, I'll be nice and collude
+                return 'c'
+            elif score < -10: #otherwise if my score is less than -10, minimize risk and betray
+                return 'b'
+            elif opponent_score > 10: #otherwise if the opponent is doing pretty well betray them
+                return 'b'
+            elif opponent_score < -10: #otherwise if the opponent is doing pretty badly collude, we should work together
+                return 'c'
+            else: #if nothing else is true, then betray, at least the other person will feel worse
+                return 'b'
+
 
     
         
