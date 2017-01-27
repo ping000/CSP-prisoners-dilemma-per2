@@ -130,28 +130,17 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
                 
                     
                             
-    ######
-    ######
-    #
-    #This example player always betrays.      
     elif player == 1:
-        if getting_team_name:
-            return 'Max and Marco'
-        else:
-            if opponent_history[-1] == opponent_history[-2] == opponent_history[-3] == 'c':
-            	return 'c'
-            else:
-            	return 'b'
-            #else:
-            #	max_and_marco_random = randint(1,7)
-            #	if max_and_marco_random % 2 == 0:
-            #		return 'b'
-            #	else:
-            #		return 'b'
-
-
-
-
+		if getting_team_name:
+			return 'Max and Marco'
+		else:
+			if len(history) > 2:
+				if opponent_history[-1] == 'c' and opponent_history[-2] == 'c' and opponent_history[-3] == 'c':
+					return 'c'
+				else:
+					return 'b'
+			else:
+				return 'b'
 
 
 
@@ -168,7 +157,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             elif history[-1]=='c' and opponent_history[-1]=='b':
                 return 'b' # betray if they were severely punished last time
             else:
-                return 'c' #otherwise collude
+             	return 'c' #otherwise collude
 
 
     
@@ -769,4 +758,5 @@ def play_tournament(num_players):
         print('player ' + str(player) , ': ' , 
                str(int(scores[player])/num_players) , ' points: ',
                team_names[player])
-    
+
+play_tournament(20)
