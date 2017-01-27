@@ -208,13 +208,13 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
         if getting_team_name:
             return 'Marco and Max'
         else:
-            # use history, opponent_history, score, opponent_score
-            # to compute your strategy
-            size = len(history)
-            if(size%3==0): #the number of rounds played is a multiple of 3
-                return 'c'
-            else:
-                return 'b'
+			if len(history) > 2:
+				if opponent_history[-1] == 'c' and opponent_history[-2] == 'c' and opponent_history[-3] == 'c':
+					return 'c'
+				else:
+					return 'b'
+			else:
+				return 'b'
     
     
     
