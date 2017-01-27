@@ -513,7 +513,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 16:
         if getting_team_name:
-            return 'chaotic neutral with increasing rates of betrayals, side of vengeful, two number nines'
+            return 'nick hills bad bot'
         else:
             if len(opponent_history)==0: #opener
                 if random.random() <= 0.5:
