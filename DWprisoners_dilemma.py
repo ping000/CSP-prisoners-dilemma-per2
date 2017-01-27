@@ -513,16 +513,30 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 16:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'nick hills bad bot'
         else:
-            if len(opponent_history)==0: #It's the first round: collude
-                return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were severely punished last time
+            if len(opponent_history)==0: #opener
+                if random.random() <= 0.5:
+                    return 'c'
+                else:
+                    return 'b'
+            
             else:
-                return 'c' #otherwise collude
-    
-    
+                prev_betrays = 0;
+                for i in range(1,len(opponent_history)): #count previous betrayals
+                    if opponent_history[i] == 'b':
+                        prev_betrays = prev_betrays + 1
+                
+                betray_chance = prev_betrays / len(opponent_history) #calculate chance of the next choice being a betrayal
+                
+                if opponent_history[-1] == 'b': #if last opponent choice was betray, add 75% to betray chance
+                    betray_chance = betray_chance + 0.75
+                
+                if random.random() <= betray_chance: #if float lands in betray chance range, betray
+                    return 'b'
+                else: #collude by default
+                    return 'c'
+        
 
 
 
