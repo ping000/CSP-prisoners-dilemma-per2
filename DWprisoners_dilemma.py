@@ -135,7 +135,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #This example player always betrays.      
     elif player == 1:
         if getting_team_name:
-            return 'backstabber'
+            return 'Max and Marco'
         else:
             return 'b'
 
@@ -209,7 +209,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 4:
         if getting_team_name:
-            return 'loyal vengeful with permanent second impression'
+            return 'Marco and Max'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
