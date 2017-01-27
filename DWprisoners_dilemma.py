@@ -258,7 +258,6 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 6:
         if getting_team_name:
-            return 'backstabber'
             return 'Dat1AZNBanana'
         else:
             # use history, opponent_history, score, opponent_score
